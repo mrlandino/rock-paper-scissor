@@ -1,48 +1,145 @@
-* {
+/* * {
   border: solid 2px yellow;
-}
+} */
 
 body {
   display: flex;
   margin: 0px;
   height: 100vh;
-  min-height: 600px;
+  min-height: 800px;
   width: 100vw;
-  min-width: 900px;
+  min-width: 1100px;
   overflow: hidden;
+  /* font-family: Chalkduster, fantasy, sans-serif; */
 }
 
 main {
   height: 100%;
   width: 100%;
+  background-color: #E874DC;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  font-family: Chalkduster, fantasy, sans-serif;
 }
 
-.left-panel-container {
-  height: 100%;
-  width: 25%;
-  display: flex;
-  justify-content: center;
-}
-
+.left-panel-container,
 .right-panel-container {
   height: 100%;
   width: 25%;
+  background-color: #C021DD;
   display: flex;
   justify-content: center;
+  align-items: flex-start;
 }
+
+/* .right-panel-container {
+  height: 100%;
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+} */
 
 .center-panel-container {
   height: 100%;
   width: 50%;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   flex-direction: column;
 }
 
+.human-wins-container,
+.computer-wins-container {
+  /* border: solid 2px blue; */
+  height: 200px;
+  width: 175px;
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.human-wins,
+.computer-wins {
+  font-size: 30px;
+}
+
+.human-number-wins,
+.computer-number-wins {
+  font-size: 20px;
+}
+
+.title-container {
+  height: 50%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.game-title {
+  font-size:70px;
+  margin-top: 100px;
+  text-align: center;
+}
+
+.game-subtitle {
+  font-size: 30px;
+  text-align: center;
+  margin-bottom: 50px;
+  margin-top: 0px;
+}
+
+.game-container {
+  /* border: solid 3px blue; */
+  height: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+}
+
+.classic-game-button,
+.modern-game-button {
+  /* border: solid 3px blue; */
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px black;
+  background-color: rgba(255, 255, 255, .40);
+  backdrop-filter: blur(5px);
+  height:300px;
+  width: 280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+.classic-game-button-title,
+.modern-game-button-title {
+  font-size: 25px;
+  font-family: Chalkduster, fantasy, sans-serif;
+  margin: 30px;
+}
+
+.classic-game-button:hover,
+.modern-game-button:hover {
+  background-color: #B86CB7;
+  transition: background-color .1s;
+}
+
+.rule {
+  height: 75%;
+  width:90%;
+  font-size: 14px;
+  margin-bottom: 15px;
+  font-family: Chalkduster, fantasy, sans-serif;
+
+}
 
 .hidden {
   display: none;

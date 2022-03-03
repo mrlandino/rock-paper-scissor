@@ -30,17 +30,10 @@ main {
   width: 25%;
   background-color: #C021DD;
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
-
-/* .right-panel-container {
-  height: 100%;
-  width: 25%;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-} */
 
 .center-panel-container {
   height: 100%;
@@ -53,12 +46,13 @@ main {
 .human-wins-container,
 .computer-wins-container {
   /* border: solid 2px blue; */
-  height: 200px;
-  width: 175px;
-  margin-top: 100px;
+  height: 400px;
+  width: 300px;
+  margin-top: 70px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   text-align: center;
 }
 
@@ -86,7 +80,9 @@ main {
   text-align: center;
 }
 
-.game-subtitle {
+.game-subtitle,
+.game-display-classic,
+.game-display-modern {
   font-size: 30px;
   text-align: center;
   margin-bottom: 50px;
@@ -94,13 +90,28 @@ main {
 }
 
 .game-container {
-  /* border: solid 3px blue; */
   height: 50%;
+  width: 100%;
+}
+
+.game-page-load {
+  height: 100%;
   width: 100%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+}
 
+.game-page-fighter-choice {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.choose-your-fighter {
+  font-size: 20px;
+  margin-bottom: 50px;
 }
 
 .classic-game-button,
@@ -130,6 +141,34 @@ main {
 .modern-game-button:hover {
   background-color: #B86CB7;
   transition: background-color .1s;
+  cursor: pointer;
+}
+
+.change-game-button-container,
+.reset-game-button-container {
+  margin-bottom: 100px;
+}
+
+.change-game-button,
+.reset-game-button {
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px black;
+  background-color: rgba(255, 255, 255, .40);
+  backdrop-filter: blur(5px);
+  height:50px;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: sans-serif;
+}
+
+.change-game-button:hover,
+.reset-game-button:hover {
+  background-color: #B86CB7;
+  transition: background-color .1s;
+  cursor: pointer;
 }
 
 .rule {
@@ -138,7 +177,42 @@ main {
   font-size: 14px;
   margin-bottom: 15px;
   font-family: Chalkduster, fantasy, sans-serif;
+}
 
+.human-image,
+.computer-image {
+  height:200px;
+  width: 150px;
+  margin: 15px;
+}
+
+.rock,
+.paper,
+.scissors {
+  height: 175px;
+  width: 175px;
+  margin: 25px;
+}
+
+.rock:hover,
+.paper:hover,
+.scissors:hover {
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  cursor: pointer;
+}
+
+.bounce {
+  animation-name: bounce;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes bounce {
+  0%   { transform: scale(1,1)    translateY(0); }
+  10%  { transform: scale(1.1,.9) translateY(0); }
+  30%  { transform: scale(.9,1.1) translateY(-50px); }
+  50%  { transform: scale(1,1)    translateY(0); }
+  100% { transform: scale(1,1)    translateY(0); }
 }
 
 .hidden {

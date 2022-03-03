@@ -12,57 +12,59 @@
   <main>
     <div class="left-panel-container">
       <div class="human-wins-container">
+        <img class="human-image" src="./assets/human.png" alt="human"></img>
         <label class="human-wins">Human</label>
         <p class="human-number-wins">wins: 0</p>
       </div>
       <div class="change-game-button-container">
-        <button class="change-game-button hidden">Change Game</button>
+        <button class="change-game-button">Change Game</button>
       </div>
     </div>
     <div class="center-panel-container">
       <div class="title-container">
         <h1 class="game-title">ROCK, PAPER, <br>SCISSORS</br></h1>
-        <h2 class="game-subtitle">Welcome! Choose your game!</h2>
+        <h2 class="game-subtitle hidden">Welcome! Choose your game!</h2>
+        <h2 class="game-display-classic">CLASSIC</h2>
+        <h2 class="game-dsiplay-modern hidden">MODERN</h2>
       </div>
       <div class="game-container">
-        <button class="classic-game-button">
-          <p class="classic-game-button-title">CLASSIC</p>
-          <p class="classic-game-button-descriptors rule">RULES<br><br>Rock > Scissors<br>Paper > Rock<br>Scissors > Paper</p>
-        </button>
-        <button class="modern-game-button">
-          <p class="modern-game-button-title">MODERN</p>
-          <p class="modern-game-button-descriptors rule">RULES<br><br>Rock > Scissors & Volcano<br>Paper > Rock & Tornado<br>Scissors > Paper & Volcano<br>Volcano > Paper & Tornado<br>Tornado > Scissors & Rock</p>
-          <!-- <p class="modern-game-button-descriptors2 rule">Paper > Rock & Tornado</p>
-          <p class="modern-game-button-descriptors3 rule">Scissors > Paper & Volcano</p>
-          <p class="modern-game-button-descriptors4 rule">Volcano > Paper & Tornado</p>
-          <p class="modern-game-button-descriptors5 rule">Tornado > Scissors & Rock</p> -->
-        </button>
-        <div class="game-coms-container hidden">
-          <p class="choose-your-fighter">Choose your Fighter!</p>
+        <div class="game-page-load hidden">
+          <button class="classic-game-button">
+            <p class="classic-game-button-title">CLASSIC</p>
+            <p class="classic-game-button-descriptors rule">RULES<br><br>Rock > Scissors<br>Paper > Rock<br>Scissors > Paper</p>
+          </button>
+          <button class="modern-game-button">
+            <p class="modern-game-button-title">MODERN</p>
+            <p class="modern-game-button-descriptors rule">RULES<br><br>Rock > Scissors & Volcano<br>Paper > Rock & Tornado<br>Scissors > Paper & Volcano<br>Volcano > Paper & Tornado<br>Tornado > Scissors & Rock</p>
+            <!-- <p class="modern-game-button-descriptors2 rule">Paper > Rock & Tornado</p>
+            <p class="modern-game-button-descriptors3 rule">Scissors > Paper & Volcano</p>
+            <p class="modern-game-button-descriptors4 rule">Volcano > Paper & Tornado</p>
+            <p class="modern-game-button-descriptors5 rule">Tornado > Scissors & Rock</p> -->
+          </button>
         </div>
-        <div class="fighter-choice-container hidden">
-          <img class="rock" src="./assets/rock.svg" alt="rock"></img>
-          <img class="paper" src="./assets/paper.svg" alt="paper"></img>
-          <img class="scissors" src="./assets/scissors.svg" alt="scissors"></img>
+        <div class="game-page-fighter-choice">
+          <div class="game-coms-container">
+            <p class="choose-your-fighter">Choose your Fighter!</p>
+          </div>
+          <div class="classic-fighter-button-container">
+            <img class="rock bounce" src="./assets/rock.png" alt="rock"></img>
+            <img class="paper bounce" src="./assets/paper.png" alt="paper"></img>
+            <img class="scissors bounce" src="./assets/scissors.png" alt="scissors"></img>
+          </div>
         </div>
       </div>
     </div>
     <div class="right-panel-container">
       <div class="computer-wins-container">
+        <img class="computer-image" src="./assets/computer2.png" alt="computer"></img>
         <label class="computer-wins">Computer</label>
         <p class="computer-number-wins">wins: 0</p>
       </div>
       <div class="reset-game-button-container">
-        <button class="reset-game-button hidden">Reset Game</button>
+        <button class="reset-game-button">Reset Game</button>
       </div>
     </div>
   </main>
-  <aside>
-
-  </aside>
-  <aside>
-
-  </aside>
 </body>
 <script type="text/javascript" src="main.js"></script>
 <script type="text/javascript" src="game.js"></script>

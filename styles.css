@@ -139,8 +139,9 @@ main {
 
 .classic-game-button:hover,
 .modern-game-button:hover {
-  background-color: #B86CB7;
-  transition: background-color .1s;
+  /* background-color: #B86CB7;
+  transition: background-color .1s; */
+  transform: scale(1.1);
   cursor: pointer;
 }
 
@@ -166,8 +167,9 @@ main {
 
 .change-game-button:hover,
 .reset-game-button:hover {
-  background-color: #B86CB7;
-  transition: background-color .1s;
+  /* background-color: #B86CB7;
+  transition: background-color .1s; */
+  transform: scale(1.1);
   cursor: pointer;
 }
 

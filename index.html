@@ -10,25 +10,25 @@
 </head>
 <body>
   <main>
-    <div class="left-panel-container">
+    <aside class="left-panel-container">
       <div class="human-wins-container">
         <img class="human-image" src="./assets/human.png" alt="human"></img>
         <label class="human-wins">Human</label>
         <p class="human-number-wins">wins: 0</p>
       </div>
-      <div class="change-game-button-container">
+      <div class="change-game-button-container hidden">
         <button class="change-game-button">Change Game</button>
       </div>
-    </div>
+    </aside>
     <div class="center-panel-container">
       <div class="title-container">
         <h1 class="game-title">ROCK, PAPER, <br>SCISSORS</br></h1>
-        <h2 class="game-subtitle hidden">Welcome! Choose your game!</h2>
-        <h2 class="game-display-classic">CLASSIC</h2>
+        <h2 class="game-subtitle">Welcome! Choose your game!</h2>
+        <h2 class="game-display-classic hidden">CLASSIC</h2>
         <h2 class="game-dsiplay-modern hidden">MODERN</h2>
       </div>
       <div class="game-container">
-        <div class="game-page-load hidden">
+        <div class="game-page-load">
           <button class="classic-game-button">
             <p class="classic-game-button-title">CLASSIC</p>
             <p class="classic-game-button-descriptors rule">RULES<br><br>Rock > Scissors<br>Paper > Rock<br>Scissors > Paper</p>
@@ -42,7 +42,7 @@
             <p class="modern-game-button-descriptors5 rule">Tornado > Scissors & Rock</p> -->
           </button>
         </div>
-        <div class="game-page-fighter-choice">
+        <div class="game-page-fighter-choice hidden">
           <div class="game-coms-container">
             <p class="choose-your-fighter">Choose your Fighter!</p>
           </div>
@@ -54,16 +54,16 @@
         </div>
       </div>
     </div>
-    <div class="right-panel-container">
+    <aside class="right-panel-container">
       <div class="computer-wins-container">
         <img class="computer-image" src="./assets/computer2.png" alt="computer"></img>
         <label class="computer-wins">Computer</label>
         <p class="computer-number-wins">wins: 0</p>
       </div>
-      <div class="reset-game-button-container">
+      <div class="reset-game-button-container hidden">
         <button class="reset-game-button">Reset Game</button>
       </div>
-    </div>
+    </aside>
   </main>
 </body>
 <script type="text/javascript" src="main.js"></script>

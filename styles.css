@@ -43,8 +43,8 @@ main {
   flex-direction: column;
 }
 
-.human-wins-container,
-.computer-wins-container {
+.player1-wins-container,
+.player2-wins-container {
   /* border: solid 2px blue; */
   height: 400px;
   width: 300px;
@@ -61,8 +61,8 @@ main {
   font-size: 30px;
 }
 
-.human-number-wins,
-.computer-number-wins {
+.player1-number-wins,
+.player2-number-wins {
   font-size: 20px;
 }
 
@@ -181,8 +181,8 @@ main {
   font-family: Chalkduster, fantasy, sans-serif;
 }
 
-.human-image,
-.computer-image {
+.player1-image,
+.player2-image {
   height:200px;
   width: 150px;
   margin: 15px;

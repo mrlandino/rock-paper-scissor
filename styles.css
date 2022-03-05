@@ -1,6 +1,9 @@
-/* * {
-  border: solid 2px yellow;
-} */
+* {
+  /* border: solid 2px yellow; */
+  /* font-family: Chalkduster, fantasy, sans-serif;
+   */
+   font-family: 'Raleway', sans-serif;
+}
 
 body {
   display: flex;
@@ -10,7 +13,6 @@ body {
   width: 100vw;
   min-width: 1100px;
   overflow: hidden;
-  /* font-family: Chalkduster, fantasy, sans-serif; */
 }
 
 main {
@@ -45,7 +47,11 @@ main {
 
 .player1-wins-container,
 .player2-wins-container {
-  /* border: solid 2px blue; */
+
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px black;
+  background-color: rgba(255, 255, 255, .40);
+  backdrop-filter: blur(5px);
   height: 400px;
   width: 300px;
   margin-top: 70px;
@@ -56,9 +62,9 @@ main {
   text-align: center;
 }
 
-.human-wins,
-.computer-wins {
-  font-size: 30px;
+.player1-wins,
+.player2-wins {
+  font-size: 25px;
 }
 
 .player1-number-wins,
@@ -117,7 +123,7 @@ main {
 .classic-game-button,
 .modern-game-button {
   /* border: solid 3px blue; */
-  border-radius: 10px;
+  border-radius: 50px;
   box-shadow: 5px 5px 10px black;
   background-color: rgba(255, 255, 255, .40);
   backdrop-filter: blur(5px);
@@ -133,7 +139,7 @@ main {
 .classic-game-button-title,
 .modern-game-button-title {
   font-size: 25px;
-  font-family: Chalkduster, fantasy, sans-serif;
+  /* font-family: Chalkduster, fantasy, sans-serif; */
   margin: 30px;
 }
 
@@ -178,7 +184,7 @@ main {
   width:90%;
   font-size: 14px;
   margin-bottom: 15px;
-  font-family: Chalkduster, fantasy, sans-serif;
+  /* font-family: Chalkduster, fantasy, sans-serif; */
 }
 
 .player1-image,

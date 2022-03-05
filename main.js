@@ -14,16 +14,17 @@ var currentGame = "";
 // window.addEventListener('load', function());
 
 classicGameButton.addEventListener('click', classicGamePageLoad);
+
 fighterChoiceRock.addEventListener('click', function(){
-  currentGame.checkGameWinner("classic", "rock", currentGame.computerRandomFighter());
+  currentGame.checkGameWinner("classic", "rock", currentGame.computerRandomFighterClassic());
   refreshWins();
 });
 fighterChoicePaper.addEventListener('click', function(){
-  currentGame.checkGameWinner("classic", "paper", currentGame.computerRandomFighter());
+  currentGame.checkGameWinner("classic", "paper", currentGame.computerRandomFighterClassic());
   refreshWins();
 });
 fighterChoiceScissors.addEventListener('click', function(){
-  currentGame.checkGameWinner("classic", "scissors", currentGame.computerRandomFighter());
+  currentGame.checkGameWinner("classic", "scissors", currentGame.computerRandomFighterClassic());
   refreshWins();
 });
 modernGameButton.addEventListener('click', modernGamePageLoad);
@@ -45,6 +46,7 @@ function classicGamePageLoad(){
   var pageLoad = document.querySelector(".game-page-load");
   var subtitle = document.querySelector(".game-subtitle");
   var fighterChoice = document.querySelector(".game-page-fighter-choice");
+  var classicGameChoice= document.querySelector(".classic-fighter-button-container")
 
   fighters.classList.remove("hidden");
   classicSubtitle.classList.remove("hidden");
@@ -53,11 +55,31 @@ function classicGamePageLoad(){
   pageLoad.classList.add("hidden");
   subtitle.classList.add("hidden");
   fighterChoice.classList.remove("hidden");
+  classicGameChoice.classList.remove("hidden");
   currentGame = new Game();
 }
 
 function modernGamePageLoad(){
-//this should mirror the above classicGamePageLoad with the different subtitle, and fighter choice
+  var fighters = document.querySelector(".modern-fighter-button-container");
+  var modernSubtitle = document.querySelector(".game-display-modern");
+  var resetButton = document.querySelector(".reset-game-button-container");
+  var changeButton = document.querySelector(".change-game-button-container");
+  var pageLoad = document.querySelector(".game-page-load");
+  var subtitle = document.querySelector(".game-subtitle");
+  var gamePage = document.querySelector(".game-page-fighter-choice");
+  var modernGameChoice = document.querySelector(".modern-fighter-button-container")
+
+
+  fighters.classList.remove("hidden");
+  modernSubtitle.classList.remove("hidden");
+  resetButton.classList.remove("hidden");
+  changeButton.classList.remove("hidden");
+  pageLoad.classList.add("hidden");
+  subtitle.classList.add("hidden");
+  gamePage.classList.remove("hidden");
+  modernGameChoice.classList.remove("hidden");
+  currentGame = new Game();
+
 };
 
 function refreshWins(){

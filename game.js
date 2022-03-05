@@ -29,8 +29,10 @@ class Game {
     }
 
     if (player1 === currentWinner) {
+      this.player1.wins++;
       return "player 1 wins!!";
     } else if (player2 === currentWinner){
+      this.player2.wins++;
       return "player 2 wins!!";
     } else {
       return "its a DRAW!!";
@@ -69,11 +71,12 @@ class Game {
     }
   }
 
-  gameReset(){
-
+  gameChange(){
+    
   }
 
   scoreReset(){
-
+    this.player1.wins = 0;
+    this.player2.wins = 0;
   }
 }

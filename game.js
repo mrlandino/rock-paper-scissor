@@ -13,18 +13,27 @@ class Game {
   }
 
   classicRPSWinner(player1, player2){
-    var rock > scissors;
-    var paper > rock;
-    var scissors > paper;
-    if (player1 > player2) {
-      return "player1 wins";
-      //need to add (wins count, message)??
-      //refresh fighter choice??
+    var rock = 1;
+    var paper = 2;
+    var scissors = 3;
+    var currentWinner = "";
+
+    if (player1 + player2 === 4 && player1 !== player2) {
+      currentWinner = "rock";
+    } else if (player1 + player2 === 3 && player1 !== player2) {
+      currentWinner = "paper";
+    } else if (player1 + player2 === 2 && player1 !== player2) {
+      currentWinner = "scissors";
+    } else {
+      currentWinner = "tie";
     }
-    if (player1 < player2) {
-      return "player1 wins";
-      //need to add (wins count, message)??
-      //refresh fighter choice??
+
+    if (player1 === currentWinner) {
+      return "player 1 wins!!";
+    } else if (player2 === currentWinner){
+      return "player 2 wins!!";
+    } else {
+      return "its a DRAW!!";
     }
   }
 
@@ -45,21 +54,26 @@ class Game {
       //need to add (wins count, message)??
       //refresh fighter choice??
     }
+    if (player1 === player2) {
+      return "ITS A DRAW!!"
+    }
   }
 
   checkGameWinner(gameType, player1, player2){
     //player1 choice agains player 2 choice with the game type to compare
     if (gameType === "classic"){
       classicRPSWinner(player1, player2);
-      //player1 wins! put message up
-      //add 1 win to player1.wins
-      //
     }
     if (gameType === "modern"){
       modernRPSWinner(player1, player2);
-      //player1 loses! put message up
-      //add 1 win to player2.wins
-      //
+    }
+  }
+
+  gameReset(){
+
+  }
+
+  scoreReset(){
 
   }
 }

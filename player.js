@@ -14,6 +14,8 @@ class Player {
   }
 
   takeTurn(){
-
+    //chose random game piece
+    //if classic game run randomizer
+    //if modern game run randomizer
   }
 }

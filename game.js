@@ -1,15 +1,9 @@
 class Game {
   constructor(){
-    this.player1 = new Player("human", "./assets/human.png");
-    this.player2 = new Player("computer", "./assets/computer.png" );
+    this.player1 = new Player("Human", "./assets/human.png");
+    this.player2 = new Player("Computer", "./assets/computer.png" );
     this.selectedGame = "";
-    this.currentGameStatus = {
-      player1 : this.player1,
-      player2 : this.player2,
-      currentGame : this.selectedGame,
-      player1Wins : this.player1.wins,
-      player2Wins : this.player2.wins
-    }
+    this.presentWinner = "";
   }
 
   classicRPSWinner(player1, player2){
@@ -43,11 +37,14 @@ class Game {
 
     if (player1 === currentWinner) {
       this.player1.wins++;
+      this.presentWinner = "player1";
       console.log("player 1 wins!!");
     } else if (player2 === currentWinner){
       this.player2.wins++;
+      this.presentWinner = "player2";
       console.log("player 2 wins!!");
     } else {
+      this.presentWinner = "draw";
       console.log("its a DRAW!!");
     }
   }
@@ -105,11 +102,14 @@ class Game {
 
     if (player1 === currentWinner) {
       this.player1.wins++;
+      this.presentWinner = "player1";
       console.log("player 1 wins!!");
     } else if (player2 === currentWinner){
       this.player2.wins++;
+      this.presentWinner = "player2";
       console.log("player 2 wins!!");
     } else {
+      this.presentWinner = "draw";
       console.log("its a DRAW!!");
     }
   }
@@ -121,17 +121,6 @@ class Game {
     }
     if (gameType === "modern"){
       this.modernRPSWinner(player1, player2);
-    }
-  }
-
-  computerRandomFighter(gameType){
-    if (gameType === "classic"){
-      var fighterArray = ["rock", "paper", "scissors"];
-      return fighterArray[Math.floor(Math.random() * fighterArray.length)];
-    }
-    if (gameType === "modern") {
-      var fighterArray = ["rock", "paper", "scissors", "volcano", "tornado"];
-      return fighterArray[Math.floor(Math.random() * fighterArray.length)];
     }
   }
 

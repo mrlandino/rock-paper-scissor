@@ -9,7 +9,8 @@ var fighterChoiceVolcano = document.querySelector(".volcano");
 var resetGameButton = document.querySelector(".reset-game-button");
 var changeGameButton = document.querySelector(".change-game-button");
 
-var fighters = document.querySelector(".classic-fighter-button-container");
+var classicFighters = document.querySelector(".classic-fighter-button-container");
+var modernFighters = document.querySelector(".modern-fighter-button-container");
 var classicSubtitle = document.querySelector(".game-display-classic");
 var modernSubtitle = document.querySelector(".game-display-modern");
 var subtitle = document.querySelector(".game-subtitle");
@@ -19,7 +20,7 @@ var pageLoad = document.querySelector(".game-page-load");
 var classicGameChoice= document.querySelector(".classic-fighter-button-container")
 var modernGameChoice = document.querySelector(".modern-fighter-button-container")
 var gamePage = document.querySelector(".game-page-fighter-choice");
-
+var weaponVsWeapon = document.querySelector(".weapon-vs-weapon");
 var currentGame = "";
 
 //event listeners
@@ -68,7 +69,7 @@ changeGameButton.addEventListener('click', mainPageLoad)
 
 //event handlers/functions
 function mainPageLoad(){
-  fighters.classList.add("hidden");
+  classicFighters.classList.add("hidden");
   classicSubtitle.classList.add("hidden");
   modernSubtitle.classList.add("hidden");
   resetButton.classList.add("hidden");
@@ -78,10 +79,11 @@ function mainPageLoad(){
   gamePage.classList.add("hidden");
   classicGameChoice.classList.add("hidden");
   modernGameChoice.classList.add("hidden");
+  weaponVsWeapon.classList.add("hidden");
 };
 
 function classicGamePageLoad(){
-  fighters.classList.remove("hidden");
+  classicFighters.classList.remove("hidden");
   classicSubtitle.classList.remove("hidden");
   resetButton.classList.remove("hidden");
   changeButton.classList.remove("hidden");
@@ -93,7 +95,7 @@ function classicGamePageLoad(){
 }
 
 function modernGamePageLoad(){
-  fighters.classList.remove("hidden");
+  modernFighters.classList.remove("hidden");
   modernSubtitle.classList.remove("hidden");
   resetButton.classList.remove("hidden");
   changeButton.classList.remove("hidden");
@@ -108,14 +110,8 @@ function modernGamePageLoad(){
 function refreshWins(){
   var player1 = document.querySelector(".player1-number-wins");
   var player2 = document.querySelector(".player2-number-wins");
-  var player1Wins = "";
-  var player2Wins = "";
-
-  player1Wins += `wins: ${currentGame.player1.wins}`;
-  player2Wins += `wins: ${currentGame.player2.wins}`;
-
-  player1.innerText = player1Wins;
-  player2.innerText = player2Wins;
+  player1.innerText = `wins: ${currentGame.player1.wins}`;
+  player2.innerText = `wins: ${currentGame.player2.wins}`;
 }
 
 function resetGame(){
@@ -126,22 +122,46 @@ function resetGame(){
 function showCurrentWinner(){
   var winnerDraw = document.querySelector(".choose-your-fighter")
   winnerDraw.innerText = "Choose your Weapon!!"
-  var winner = "";
+  weaponVsWeapon.classList.remove("hidden");
 
   if (currentGame.presentWinner === "player1"){
     winnerDraw.innerHTML = `Congratulations ${currentGame.player1.name}! You WIN!!`;
+    classicFighters.classList.add("hidden");
+    modernFighters.classList.add("hidden");
+    weaponVsWeapon.innerHTML += `<img class="${currentGame.player1Weapon}1" src="./assets/${currentGame.player1Weapon}.png" alt="${currentGame.player1Weapon}"></img>
+    <p class="defeats">DEFEATS</p>
+    <img class="${currentGame.player2Weapon}1" src="./assets/${currentGame.player2Weapon}.png" alt="${currentGame.player2Weapon}"></img>
+    `;
   }
   if (currentGame.presentWinner === "player2"){
     winnerDraw.innerHTML = `You lose to ${currentGame.player2.name}.`;
+    classicFighters.classList.add("hidden");
+    modernFighters.classList.add("hidden");
+    weaponVsWeapon.innerHTML += `<img class="${currentGame.player1Weapon}1" src="./assets/${currentGame.player1Weapon}.png" alt="${currentGame.player1Weapon}"></img>
+    <p class="loses">LOSES TO</p>
+    <img class="${currentGame.player2Weapon}1" src="./assets/${currentGame.player2Weapon}.png" alt="${currentGame.player2Weapon}"></img>
+    `;
   }
   if (currentGame.presentWinner === "draw"){
-    winner = `<p class="winner">Its a Draw!!</p>`
-    winnerDraw.innerHTML = winner;
+    winnerDraw.innerHTML = `<p class="winner">Its a Draw!!</p>`;
+    classicFighters.classList.add("hidden");
+    modernFighters.classList.add("hidden");
+    weaponVsWeapon.innerHTML += `<img class="${currentGame.player1Weapon}1" src="./assets/${currentGame.player1Weapon}.png" alt="${currentGame.player1Weapon}"></img>
+    <p class="draw">DRAW</p>
+    <img class="${currentGame.player2Weapon}1" src="./assets/${currentGame.player2Weapon}.png" alt="${currentGame.player2Weapon}"></img>
+    `;
   }
 }
 
 function resetWinner() {
+  currentGame.presentWinner = "";
   var winnerDraw = document.querySelector(".choose-your-fighter")
-  winnerDraw.innerText = "Choose your Fighter!!"
-
+  winnerDraw.innerText = "Choose your Weapon!!";
+  weaponVsWeapon.classList.add("hidden");
+  if (currentGame.selectedGame === "classic"){
+    classicFighters.classList.remove("hidden");
+  } else {
+    modernFighters.classList.remove("hidden");
+  }
+  weaponVsWeapon.innerHTML = "";
 }

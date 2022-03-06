@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="keywords" content="HTML, CSS, JavaScript">
   <title>Rock Paper Scissors</title>
-  <link href="./assets/favicon.png" rel="icon" type="image/x-icon" />
+  <!-- <link href="./assets/favicon.png" rel="icon" type="image/x-icon" /> -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap" rel="stylesheet">
@@ -28,7 +28,7 @@
         <h1 class="game-title">ROCK, PAPER, <br>SCISSORS</br></h1>
         <h2 class="game-subtitle">Welcome! Choose your game!</h2>
         <h2 class="game-display-classic hidden">CLASSIC</h2>
-        <h2 class="game-dsiplay-modern hidden">MODERN</h2>
+        <h2 class="game-display-modern hidden">MODERN</h2>
       </div>
       <div class="game-container">
         <div class="game-page-load">
@@ -39,20 +39,23 @@
           <button class="modern-game-button">
             <p class="modern-game-button-title">MODERN</p>
             <p class="modern-game-button-descriptors rule">RULES<br><br>Rock > Scissors & Volcano<br>Paper > Rock & Tornado<br>Scissors > Paper & Volcano<br>Volcano > Paper & Tornado<br>Tornado > Scissors & Rock</p>
-            <!-- <p class="modern-game-button-descriptors2 rule">Paper > Rock & Tornado</p>
-            <p class="modern-game-button-descriptors3 rule">Scissors > Paper & Volcano</p>
-            <p class="modern-game-button-descriptors4 rule">Volcano > Paper & Tornado</p>
-            <p class="modern-game-button-descriptors5 rule">Tornado > Scissors & Rock</p> -->
           </button>
         </div>
         <div class="game-page-fighter-choice hidden">
           <div class="game-coms-container">
-            <p class="choose-your-fighter">Choose your Fighter!</p>
+            <p class="choose-your-fighter">Choose your Weapon!</p>
           </div>
-          <div class="classic-fighter-button-container">
+          <div class="classic-fighter-button-container hidden">
             <img class="rock bounce" src="./assets/rock.png" alt="rock"></img>
             <img class="paper bounce" src="./assets/paper.png" alt="paper"></img>
             <img class="scissors bounce" src="./assets/scissors.png" alt="scissors"></img>
+          </div>
+          <div class="modern-fighter-button-container hidden">
+            <img class="rock bounce" src="./assets/rock.png" alt="rock"></img>
+            <img class="paper bounce" src="./assets/paper.png" alt="paper"></img>
+            <img class="scissors bounce" src="./assets/scissors.png" alt="scissors"></img>
+            <img class="volcano bounce" src="./assets/volcano.png" alt="volcano"></img>
+            <img class="tornado bounce" src="./assets/tornado.png" alt="tornado"></img>
           </div>
         </div>
       </div>
@@ -64,7 +67,7 @@
         <p class="player2-number-wins">wins: 0</p>
       </div>
       <div class="reset-game-button-container hidden">
-        <button class="reset-game-button">Reset Game</button>
+        <button class="reset-game-button">Reset Score</button>
       </div>
     </aside>
   </main>

@@ -5,17 +5,14 @@ class Player {
     this.wins = 0;
   }
 
-  saveWinsToStorage(){
-
-  }
-
-  retrieveWinsFromStorage(){
-
-  }
-
-  takeTurn(){
-    //chose random game piece
-    //if classic game run randomizer
-    //if modern game run randomizer
+  takeTurn(gameType){
+    if (gameType === "classic"){
+      var fighterArray = ["rock", "paper", "scissors"];
+      return fighterArray[Math.floor(Math.random() * fighterArray.length)];
+    }
+    if (gameType === "modern") {
+      var fighterArray = ["rock", "paper", "scissors", "volcano", "tornado"];
+      return fighterArray[Math.floor(Math.random() * fighterArray.length)];
+    }
   }
 }

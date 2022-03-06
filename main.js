@@ -8,68 +8,81 @@ var fighterChoiceTornado = document.querySelector(".tornado");
 var fighterChoiceVolcano = document.querySelector(".volcano");
 var resetGameButton = document.querySelector(".reset-game-button");
 var changeGameButton = document.querySelector(".change-game-button");
+
+var fighters = document.querySelector(".classic-fighter-button-container");
+var classicSubtitle = document.querySelector(".game-display-classic");
+var modernSubtitle = document.querySelector(".game-display-modern");
+var subtitle = document.querySelector(".game-subtitle");
+var resetButton = document.querySelector(".reset-game-button-container");
+var changeButton = document.querySelector(".change-game-button-container");
+var pageLoad = document.querySelector(".game-page-load");
+var classicGameChoice= document.querySelector(".classic-fighter-button-container")
+var modernGameChoice = document.querySelector(".modern-fighter-button-container")
+var gamePage = document.querySelector(".game-page-fighter-choice");
+
 var currentGame = "";
 
 //event listeners
-// window.addEventListener('load', function());
+window.addEventListener('load', function(){
+    currentGame = new Game();
+});
 
 classicGameButton.addEventListener('click', classicGamePageLoad);
-
-fighterChoiceRock.addEventListener('click', function(){
-  currentGame.checkGameWinner("classic", "rock", currentGame.computerRandomFighterClassic());
-  refreshWins();
-});
-fighterChoicePaper.addEventListener('click', function(){
-  currentGame.checkGameWinner("classic", "paper", currentGame.computerRandomFighterClassic());
-  refreshWins();
-});
-fighterChoiceScissors.addEventListener('click', function(){
-  currentGame.checkGameWinner("classic", "scissors", currentGame.computerRandomFighterClassic());
-  refreshWins();
-});
 modernGameButton.addEventListener('click', modernGamePageLoad);
 
+gamePage.addEventListener('click', function(e){
+   if(e.target.classList.contains("rock")){
+     currentGame.checkGameWinner(currentGame.selectedGame, "rock", currentGame.computerRandomFighter(currentGame.selectedGame));
+     refreshWins();
+   }
+   if(e.target.classList.contains("paper")){
+     currentGame.checkGameWinner(currentGame.selectedGame, "paper", currentGame.computerRandomFighter(currentGame.selectedGame));
+     refreshWins();
+   }
+   if(e.target.classList.contains("scissors")){
+     currentGame.checkGameWinner(currentGame.selectedGame, "scissors", currentGame.computerRandomFighter(currentGame.selectedGame));
+     refreshWins();
+   }
+   if(e.target.classList.contains("tornado")){
+     currentGame.checkGameWinner(currentGame.selectedGame, "tornado", currentGame.computerRandomFighter(currentGame.selectedGame));
+     refreshWins();
+   }
+   if(e.target.classList.contains("volcano")){
+     currentGame.checkGameWinner(currentGame.selectedGame, "volcano", currentGame.computerRandomFighter(currentGame.selectedGame));
+     refreshWins();
+   }
+});
 
-
-
+resetGameButton.addEventListener('click', resetGame)
+changeGameButton.addEventListener('click', mainPageLoad)
 
 //event handlers/functions
 function mainPageLoad(){
-
+  fighters.classList.add("hidden");
+  classicSubtitle.classList.add("hidden");
+  modernSubtitle.classList.add("hidden");
+  resetButton.classList.add("hidden");
+  changeButton.classList.add("hidden");
+  pageLoad.classList.remove("hidden");
+  subtitle.classList.remove("hidden");
+  gamePage.classList.add("hidden");
+  classicGameChoice.classList.add("hidden");
+  modernGameChoice.classList.add("hidden");
 };
 
 function classicGamePageLoad(){
-  var fighters = document.querySelector(".classic-fighter-button-container");
-  var classicSubtitle = document.querySelector(".game-display-classic");
-  var resetButton = document.querySelector(".reset-game-button-container");
-  var changeButton = document.querySelector(".change-game-button-container");
-  var pageLoad = document.querySelector(".game-page-load");
-  var subtitle = document.querySelector(".game-subtitle");
-  var fighterChoice = document.querySelector(".game-page-fighter-choice");
-  var classicGameChoice= document.querySelector(".classic-fighter-button-container")
-
   fighters.classList.remove("hidden");
   classicSubtitle.classList.remove("hidden");
   resetButton.classList.remove("hidden");
   changeButton.classList.remove("hidden");
   pageLoad.classList.add("hidden");
   subtitle.classList.add("hidden");
-  fighterChoice.classList.remove("hidden");
+  gamePage.classList.remove("hidden");
   classicGameChoice.classList.remove("hidden");
-  currentGame = new Game();
+  currentGame.selectedGame = "classic";
 }
 
 function modernGamePageLoad(){
-  var fighters = document.querySelector(".modern-fighter-button-container");
-  var modernSubtitle = document.querySelector(".game-display-modern");
-  var resetButton = document.querySelector(".reset-game-button-container");
-  var changeButton = document.querySelector(".change-game-button-container");
-  var pageLoad = document.querySelector(".game-page-load");
-  var subtitle = document.querySelector(".game-subtitle");
-  var gamePage = document.querySelector(".game-page-fighter-choice");
-  var modernGameChoice = document.querySelector(".modern-fighter-button-container")
-
-
   fighters.classList.remove("hidden");
   modernSubtitle.classList.remove("hidden");
   resetButton.classList.remove("hidden");
@@ -78,8 +91,8 @@ function modernGamePageLoad(){
   subtitle.classList.add("hidden");
   gamePage.classList.remove("hidden");
   modernGameChoice.classList.remove("hidden");
-  currentGame = new Game();
-
+  classicGameChoice.classList.add("hidden");
+  currentGame.selectedGame = "modern";
 };
 
 function refreshWins(){
@@ -93,4 +106,9 @@ function refreshWins(){
 
   player1.innerText = player1Wins;
   player2.innerText = player2Wins;
+}
+
+function resetGame(){
+  currentGame.scoreReset();
+  refreshWins();
 }

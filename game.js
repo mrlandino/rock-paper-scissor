@@ -4,23 +4,31 @@ class Game {
     this.player2 = new Player("Computer", "./assets/computer.png" );
     this.selectedGame = "";
     this.presentWinner = "";
+    this.player1Weapon = "";
+    this.player2Weapon = "";
   }
 
   classicRPSWinner(player1, player2){
     if (player1 === "rock") {
       player1 = 1;
+      this.player1Weapon = "rock";
     } else if (player1 === "paper") {
       player1 = 2;
+      this.player1Weapon = "paper";
     } else {
       player1 = 3;
+      this.player1Weapon = "scissors";
     }
 
     if (player2 === "rock") {
       player2 = 1;
+      this.player2Weapon = "rock";
     } else if (player2 === "paper") {
       player2 = 2;
+      this.player2Weapon = "paper";
     } else {
       player2 = 3;
+      this.player2Weapon = "scissors";
     }
 
     var currentWinner = "";
@@ -38,40 +46,47 @@ class Game {
     if (player1 === currentWinner) {
       this.player1.wins++;
       this.presentWinner = "player1";
-      console.log("player 1 wins!!");
     } else if (player2 === currentWinner){
       this.player2.wins++;
       this.presentWinner = "player2";
-      console.log("player 2 wins!!");
     } else {
       this.presentWinner = "draw";
-      console.log("its a DRAW!!");
     }
   }
 
   modernRPSWinner(player1, player2){
     if (player1 === "rock") {
       player1 = 1;
+      this.player1Weapon = "rock";
     } else if (player1 === "paper") {
       player1 = 2;
+      this.player1Weapon = "paper";
     } else if (player1 === "scissors"){
       player1 = 3;
+      this.player1Weapon = "scissors";
     } else if (player1 === "volcano") {
       player1 = 10;
+      this.player1Weapon = "volcano";
     } else {
       player1 = 15;
+      this.player1Weapon = "tornado";
     }
 
     if (player2 === "rock") {
       player2 = 1;
+      this.player2Weapon = "rock";
     } else if (player2 === "paper") {
       player2 = 2;
+      this.player2Weapon = "paper";
     } else if (player2 === "scissors") {
       player2 = 3;
+      this.player2Weapon = "scissors";
     } else if (player2 === "volcano") {
       player2 = 10;
+      this.player2Weapon = "volcano";
     } else {
       player2 = 15;
+      this.player2Weapon = "tornado";
     }
 
     var currentWinner = "";
@@ -103,19 +118,15 @@ class Game {
     if (player1 === currentWinner) {
       this.player1.wins++;
       this.presentWinner = "player1";
-      console.log("player 1 wins!!");
     } else if (player2 === currentWinner){
       this.player2.wins++;
       this.presentWinner = "player2";
-      console.log("player 2 wins!!");
     } else {
       this.presentWinner = "draw";
-      console.log("its a DRAW!!");
     }
   }
 
   checkGameWinner(gameType, player1, player2){
-    //player1 choice agains player 2 choice with the game type to compare
     if (gameType === "classic"){
       this.classicRPSWinner(player1, player2);
     }
@@ -124,6 +135,7 @@ class Game {
     }
   }
 
+  //need to find out if I need this?
   newGame(){
     document.location.reload();
   }

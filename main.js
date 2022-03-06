@@ -32,24 +32,34 @@ modernGameButton.addEventListener('click', modernGamePageLoad);
 
 gamePage.addEventListener('click', function(e){
    if(e.target.classList.contains("rock")){
-     currentGame.checkGameWinner(currentGame.selectedGame, "rock", currentGame.computerRandomFighter(currentGame.selectedGame));
+     currentGame.checkGameWinner(currentGame.selectedGame, "rock", currentGame.player2.takeTurn(currentGame.selectedGame));
      refreshWins();
+     showCurrentWinner();
+     setTimeout(resetWinner, 3000);
    }
    if(e.target.classList.contains("paper")){
-     currentGame.checkGameWinner(currentGame.selectedGame, "paper", currentGame.computerRandomFighter(currentGame.selectedGame));
+     currentGame.checkGameWinner(currentGame.selectedGame, "paper", currentGame.player2.takeTurn(currentGame.selectedGame));
      refreshWins();
+     showCurrentWinner();
+     setTimeout(resetWinner, 3000);
    }
    if(e.target.classList.contains("scissors")){
-     currentGame.checkGameWinner(currentGame.selectedGame, "scissors", currentGame.computerRandomFighter(currentGame.selectedGame));
+     currentGame.checkGameWinner(currentGame.selectedGame, "scissors", currentGame.player2.takeTurn(currentGame.selectedGame));
      refreshWins();
+     showCurrentWinner();
+     setTimeout(resetWinner, 3000);
    }
    if(e.target.classList.contains("tornado")){
-     currentGame.checkGameWinner(currentGame.selectedGame, "tornado", currentGame.computerRandomFighter(currentGame.selectedGame));
+     currentGame.checkGameWinner(currentGame.selectedGame, "tornado", currentGame.player2.takeTurn(currentGame.selectedGame));
      refreshWins();
+     showCurrentWinner();
+     setTimeout(resetWinner, 3000);
    }
    if(e.target.classList.contains("volcano")){
-     currentGame.checkGameWinner(currentGame.selectedGame, "volcano", currentGame.computerRandomFighter(currentGame.selectedGame));
+     currentGame.checkGameWinner(currentGame.selectedGame, "volcano", currentGame.player2.takeTurn(currentGame.selectedGame));
      refreshWins();
+     showCurrentWinner();
+     setTimeout(resetWinner, 3000);
    }
 });
 
@@ -111,4 +121,27 @@ function refreshWins(){
 function resetGame(){
   currentGame.scoreReset();
   refreshWins();
+}
+
+function showCurrentWinner(){
+  var winnerDraw = document.querySelector(".choose-your-fighter")
+  winnerDraw.innerText = "Choose your Weapon!!"
+  var winner = "";
+
+  if (currentGame.presentWinner === "player1"){
+    winnerDraw.innerHTML = `Congratulations ${currentGame.player1.name}! You WIN!!`;
+  }
+  if (currentGame.presentWinner === "player2"){
+    winnerDraw.innerHTML = `You lose to ${currentGame.player2.name}.`;
+  }
+  if (currentGame.presentWinner === "draw"){
+    winner = `<p class="winner">Its a Draw!!</p>`
+    winnerDraw.innerHTML = winner;
+  }
+}
+
+function resetWinner() {
+  var winnerDraw = document.querySelector(".choose-your-fighter")
+  winnerDraw.innerText = "Choose your Fighter!!"
+
 }

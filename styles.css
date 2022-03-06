@@ -231,6 +231,16 @@ main {
   cursor: pointer;
 }
 
+.rock:active,
+.paper:active,
+.scissors:active,
+.tornado:active,
+.volcano:active {
+  height: 25%;
+  width: 25%;
+
+}
+
 .bounce {
   animation-name: bounce;
   animation-timing-function: ease-in-out;

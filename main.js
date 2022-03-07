@@ -6,7 +6,7 @@ var fighterChoicePaper = document.querySelector(".paper");
 var fighterChoiceScissors = document.querySelector(".scissors");
 var fighterChoiceTornado = document.querySelector(".tornado");
 var fighterChoiceVolcano = document.querySelector(".volcano");
-var resetGameButton = document.querySelector(".reset-game-button");
+var resetScoreButton = document.querySelector(".reset-score-button");
 var changeGameButton = document.querySelector(".change-game-button");
 
 var classicFighters = document.querySelector(".classic-fighter-button-container");
@@ -14,13 +14,14 @@ var modernFighters = document.querySelector(".modern-fighter-button-container");
 var classicSubtitle = document.querySelector(".game-display-classic");
 var modernSubtitle = document.querySelector(".game-display-modern");
 var subtitle = document.querySelector(".game-subtitle");
-var resetButton = document.querySelector(".reset-game-button-container");
-var changeButton = document.querySelector(".change-game-button-container");
+var resetButton = document.querySelector(".reset-score-button-container");
+var changeButton = document.querySelector(".change-game-button");
 var pageLoad = document.querySelector(".game-page-load");
-var classicGameChoice= document.querySelector(".classic-fighter-button-container")
-var modernGameChoice = document.querySelector(".modern-fighter-button-container")
+var classicGameChoice= document.querySelector(".classic-fighter-button-container");
+var modernGameChoice = document.querySelector(".modern-fighter-button-container");
 var gamePage = document.querySelector(".game-page-fighter-choice");
 var weaponVsWeapon = document.querySelector(".weapon-vs-weapon");
+var resetGameButton = document.querySelector(".reset-game-button");
 var currentGame = "";
 
 //event listeners
@@ -30,42 +31,45 @@ window.addEventListener('load', function(){
 
 classicGameButton.addEventListener('click', classicGamePageLoad);
 modernGameButton.addEventListener('click', modernGamePageLoad);
+resetGameButton.addEventListener('click', function(){
+  currentGame.newGame();
+});
 
 gamePage.addEventListener('click', function(e){
    if(e.target.classList.contains("rock")){
-     currentGame.checkGameWinner(currentGame.selectedGame, "rock", currentGame.player2.takeTurn(currentGame.selectedGame));
+     currentGame.checkGameWinner("rock", currentGame.player2.takeTurn(currentGame.selectedGame));
      refreshWins();
      showCurrentWinner();
-     setTimeout(resetWinner, 3000);
+     setTimeout(resetWinner, 2000);
    }
    if(e.target.classList.contains("paper")){
-     currentGame.checkGameWinner(currentGame.selectedGame, "paper", currentGame.player2.takeTurn(currentGame.selectedGame));
+     currentGame.checkGameWinner("paper", currentGame.player2.takeTurn(currentGame.selectedGame));
      refreshWins();
      showCurrentWinner();
-     setTimeout(resetWinner, 3000);
+     setTimeout(resetWinner, 2000);
    }
    if(e.target.classList.contains("scissors")){
-     currentGame.checkGameWinner(currentGame.selectedGame, "scissors", currentGame.player2.takeTurn(currentGame.selectedGame));
+     currentGame.checkGameWinner("scissors", currentGame.player2.takeTurn(currentGame.selectedGame));
      refreshWins();
      showCurrentWinner();
-     setTimeout(resetWinner, 3000);
+     setTimeout(resetWinner, 2000);
    }
    if(e.target.classList.contains("tornado")){
-     currentGame.checkGameWinner(currentGame.selectedGame, "tornado", currentGame.player2.takeTurn(currentGame.selectedGame));
+     currentGame.checkGameWinner("tornado", currentGame.player2.takeTurn(currentGame.selectedGame));
      refreshWins();
      showCurrentWinner();
-     setTimeout(resetWinner, 3000);
+     setTimeout(resetWinner, 2000);
    }
    if(e.target.classList.contains("volcano")){
-     currentGame.checkGameWinner(currentGame.selectedGame, "volcano", currentGame.player2.takeTurn(currentGame.selectedGame));
+     currentGame.checkGameWinner("volcano", currentGame.player2.takeTurn(currentGame.selectedGame));
      refreshWins();
      showCurrentWinner();
-     setTimeout(resetWinner, 3000);
+     setTimeout(resetWinner, 2000);
    }
 });
 
-resetGameButton.addEventListener('click', resetGame)
-changeGameButton.addEventListener('click', mainPageLoad)
+resetScoreButton.addEventListener('click', resetGame);
+changeGameButton.addEventListener('click', mainPageLoad);
 
 //event handlers/functions
 function mainPageLoad(){
@@ -80,7 +84,10 @@ function mainPageLoad(){
   classicGameChoice.classList.add("hidden");
   modernGameChoice.classList.add("hidden");
   weaponVsWeapon.classList.add("hidden");
-};
+  if (currentGame.player1.wins !== 0 || currentGame.player2.wins !== 0){
+    resetGameButton.classList.remove("hidden");
+  }
+}
 
 function classicGamePageLoad(){
   classicFighters.classList.remove("hidden");
@@ -92,6 +99,7 @@ function classicGamePageLoad(){
   gamePage.classList.remove("hidden");
   classicGameChoice.classList.remove("hidden");
   currentGame.selectedGame = "classic";
+  resetGameButton.classList.add("hidden");
 }
 
 function modernGamePageLoad(){
@@ -105,7 +113,8 @@ function modernGamePageLoad(){
   modernGameChoice.classList.remove("hidden");
   classicGameChoice.classList.add("hidden");
   currentGame.selectedGame = "modern";
-};
+  resetGameButton.classList.add("hidden");
+}
 
 function refreshWins(){
   var player1 = document.querySelector(".player1-number-wins");
@@ -120,8 +129,8 @@ function resetGame(){
 }
 
 function showCurrentWinner(){
-  var winnerDraw = document.querySelector(".choose-your-fighter")
-  winnerDraw.innerText = "Choose your Weapon!!"
+  var winnerDraw = document.querySelector(".choose-your-fighter");
+  winnerDraw.innerText = "Choose your Weapon!!";
   weaponVsWeapon.classList.remove("hidden");
 
   if (currentGame.presentWinner === "player1"){
@@ -155,7 +164,7 @@ function showCurrentWinner(){
 
 function resetWinner() {
   currentGame.presentWinner = "";
-  var winnerDraw = document.querySelector(".choose-your-fighter")
+  var winnerDraw = document.querySelector(".choose-your-fighter");
   winnerDraw.innerText = "Choose your Weapon!!";
   weaponVsWeapon.classList.add("hidden");
   if (currentGame.selectedGame === "classic"){

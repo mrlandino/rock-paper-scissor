@@ -6,132 +6,48 @@ class Game {
     this.presentWinner = "";
     this.player1Weapon = "";
     this.player2Weapon = "";
+    this.gameRules = {
+      rockscissors: "player1",
+      rockpaper : "player2",
+      rockvolcano : "player1",
+      rocktornado : "player2",
+      paperscissors : "player2",
+      paperrock : "player1",
+      papervolcano : "player2",
+      papertornado : "player1",
+      scissorspaper : "player1",
+      scissorsrock : "player2",
+      scissorsvolcano : "player1",
+      scissorstornado : "player2",
+      volcanorock : "player2",
+      volcanopaper : "player1",
+      volcanoscissors : "player2",
+      volcanotornado : "player1",
+      tornadorock : "player1",
+      tornadopaper : "player2",
+      tornadoscissors : "player1",
+      tornadovolcano : "player2",
+      rockrock : "draw",
+      scissorsscissors : "draw",
+      paperpaper : "draw",
+      volcanovolcano: "draw",
+      tornadotornado: "draw",
+    }
   }
 
-  classicRPSWinner(player1, player2){
-    if (player1 === "rock") {
-      player1 = 1;
-      this.player1Weapon = "rock";
-    } else if (player1 === "paper") {
-      player1 = 2;
-      this.player1Weapon = "paper";
-    } else {
-      player1 = 3;
-      this.player1Weapon = "scissors";
-    }
-
-    if (player2 === "rock") {
-      player2 = 1;
-      this.player2Weapon = "rock";
-    } else if (player2 === "paper") {
-      player2 = 2;
-      this.player2Weapon = "paper";
-    } else {
-      player2 = 3;
-      this.player2Weapon = "scissors";
-    }
-
-    var currentWinner = "";
-
-    if (player1 + player2 === 4 && player1 !== player2) {
-      currentWinner = 1;
-    } else if (player1 + player2 === 3 && player1 !== player2) {
-      currentWinner = 2;
-    } else if (player1 + player2 === 5 && player1 !== player2) {
-      currentWinner = 3;
-    } else {
-      currentWinner = "tie";
-    }
-
-    if (player1 === currentWinner) {
+  checkGameWinner(player1, player2){
+    this.player1Weapon = player1;
+    this.player2Weapon = player2;
+    var weaponCompare = `${player1}${player2}`;
+    var declareWinner = this.gameRules[weaponCompare];
+    if (declareWinner === "player1") {
       this.player1.wins++;
       this.presentWinner = "player1";
-    } else if (player2 === currentWinner){
+    } else if (declareWinner === "player2"){
       this.player2.wins++;
       this.presentWinner = "player2";
     } else {
       this.presentWinner = "draw";
-    }
-  }
-
-  modernRPSWinner(player1, player2){
-    if (player1 === "rock") {
-      player1 = 1;
-      this.player1Weapon = "rock";
-    } else if (player1 === "paper") {
-      player1 = 2;
-      this.player1Weapon = "paper";
-    } else if (player1 === "scissors"){
-      player1 = 3;
-      this.player1Weapon = "scissors";
-    } else if (player1 === "volcano") {
-      player1 = 10;
-      this.player1Weapon = "volcano";
-    } else {
-      player1 = 15;
-      this.player1Weapon = "tornado";
-    }
-
-    if (player2 === "rock") {
-      player2 = 1;
-      this.player2Weapon = "rock";
-    } else if (player2 === "paper") {
-      player2 = 2;
-      this.player2Weapon = "paper";
-    } else if (player2 === "scissors") {
-      player2 = 3;
-      this.player2Weapon = "scissors";
-    } else if (player2 === "volcano") {
-      player2 = 10;
-      this.player2Weapon = "volcano";
-    } else {
-      player2 = 15;
-      this.player2Weapon = "tornado";
-    }
-
-    var currentWinner = "";
-
-    if (player1 + player2 === 4 && player1 !== player2) {
-      currentWinner = 1;
-    } else if (player1 + player2 === 3 && player1 !== player2) {
-      currentWinner = 2;
-    } else if (player1 + player2 === 5 && player1 !== player2) {
-      currentWinner = 3;
-    } else if (player1 + player2 === 11 && player1 !== player2) {
-      currentWinner = 1;
-    } else if (player1 + player2 === 12 && player1 !== player2) {
-      currentWinner = 10;
-    } else if (player1 + player2 === 13 && player1 !== player2) {
-      currentWinner = 3;
-    } else if (player1 + player2 === 16 && player1 !== player2) {
-      currentWinner = 15;
-    } else if (player1 + player2 === 17 && player1 !== player2) {
-      currentWinner = 2;
-    } else if (player1 + player2 === 18 && player1 !== player2) {
-      currentWinner = 15;
-    } else if (player1 + player2 === 25 && player1 !== player2) {
-      currentWinner = 10;
-    } else {
-      currentWinner = "tie";
-    }
-
-    if (player1 === currentWinner) {
-      this.player1.wins++;
-      this.presentWinner = "player1";
-    } else if (player2 === currentWinner){
-      this.player2.wins++;
-      this.presentWinner = "player2";
-    } else {
-      this.presentWinner = "draw";
-    }
-  }
-
-  checkGameWinner(gameType, player1, player2){
-    if (gameType === "classic"){
-      this.classicRPSWinner(player1, player2);
-    }
-    if (gameType === "modern"){
-      this.modernRPSWinner(player1, player2);
     }
   }
 

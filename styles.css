@@ -147,11 +147,12 @@ main {
 }
 
 .change-game-button-container,
-.reset-game-button-container {
+.reset-score-button-container {
   margin-bottom: 100px;
 }
 
 .change-game-button,
+.reset-score-button,
 .reset-game-button {
   border-radius: 10px;
   box-shadow: 5px 5px 10px black;
@@ -166,6 +167,7 @@ main {
 }
 
 .change-game-button:hover,
+.reset-score-button:hover,
 .reset-game-button:hover {
   transform: scale(1.1);
   cursor: pointer;

@@ -25,7 +25,7 @@ The application will be deployed to gitHub pages, and can be accessed soon.
 * JavaScript
 
 ## Application Features
-![New page](assets/Rock Paper Scissors Game.mov)
+![](assets/Rock Paper Scissors Game.mov)
 * On page load, the welcome page is displayed where you can choose which game you would like to play. When you go into one game or the other you can start to play against the computer. When you click on a weapon it will show you your choice and the computers choice with who won that round. When a win happens it will be recorded under the player (human or computer) as wins. The wins will persist until you decide you would like to "reset score" or "reset game". You can move back and forth from the Classic game or the Modern game as many times as you would like.
 
 

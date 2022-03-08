@@ -51,7 +51,6 @@ class Game {
     }
   }
 
-  //need to find out if I need this?
   newGame(){
     document.location.reload();
   }
